@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iconic Ambientaciones</title>
+  <meta name="description" content="Decoración, mobiliario, sonido e iluminación para eventos. Zona Sur, Buenos Aires." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="Imágenes/LogoSample_ByTailorBrands.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#791b69;/* violeta principio de página */
+      --bg-soft:#7e358d;
+      --card:#9d248fc9;
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --brand:#ab7b7b;/* Letras titulo, íconos y pie redes */
+      --brand-2:#7338a3;/* Botón de cotización */   
+      --radius: 18px;
+      --radius-lg: 30px;
+      --max: 1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:linear-gradient(180deg,var(--bg),#0c0c0f 40%, #0b0b0d 100%);
+      color:var(--text); font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+      line-height:1.6; letter-spacing:.2px;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{color:#d6ca25}
+    /* NAV */
+    .nav {
+      position: fixed; /* Cambiado a fixed para el efecto de ocultar/mostrar */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      backdrop-filter: saturate(140%) blur(10px);
+      background: rgba(10, 10, 12, .6);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      transition: transform 0.3s ease-out; /* Transición para el efecto de deslizamiento */
+    }
+    .nav.hide {
+      transform: translateY(-100%); /* Oculta el nav moviéndolo hacia arriba */
+    }
+    /* Ajuste para el contenido debajo del nav fijo */
+    body {
+      padding-top: 70px; /* Ajusta este valor según la altura real de tu nav */
+    }
+    .nav__inner{max-width:var(--max); margin:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.6px}
+    .brand .logo{width:36px; height:36px; border-radius:50%; background:radial-gradient(circle at 30% 30%, #f6e3a1, #b7892a); box-shadow:0 0 0 3px rgba(255,255,255,.06)}
+    .brand span{font-size:1.05rem}
+    .menu{display:flex; flex-wrap:wrap; gap:14px}
+    .menu a{font-weight:500; color:var(--acc); opacity:.92; padding:8px 12px; border-radius:12px}
+    .menu a:hover{background:rgba(255,255,255,.06)}
+    .cta-nav{padding:8px 14px; border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#121214; font-weight:700}
+    /* HERO */
+    .hero{position:relative; isolation:isolate;}
+    .hero__wrap{max-width:var(--max); margin:auto; display:grid; grid-template-columns:1.2fr .8fr; gap:36px; padding:84px 20px}
+    .hero h1{font-size:clamp(36px,5vw,58px); line-height:1.1; margin:0 0 10px; letter-spacing:.4px}
+    .hero p{color:var(--muted); font-size:clamp(16px,2.2vw,18px)}
+    .badges{display:flex; gap:14px; margin:24px 0 30px; flex-wrap:wrap}
+    .badge{border:1px solid rgba(255,255,255,.12); color:var(--acc); padding:8px 12px; border-radius:999px; font-size:.9rem; background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{padding:14px 18px; border-radius:14px; font-weight:700; border:1px solid rgba(255,255,255,.12); color:var(--acc)}
+    .btn--fill{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#121214; border:0}
+    .mock{
+      min-height:320px; border-radius:var(--radius-lg); background:radial-gradient(1200px 600px at 20% 20%, rgba(213,177,106,.2), transparent 60%), linear-gradient(180deg,#17181d,#101015); border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow);
+      display:grid; place-items:center; overflow:hidden
+    }
+    .mock .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; padding:12px}
+    .ph{aspect-ratio:4/3; border-radius:12px; background:linear-gradient(135deg,#20222a,#15161b); border:1px solid rgba(255,255,255,.08)}
+    /* SECTIONS */
+    section{padding:72px 20px}
+    .wrap{max-width:var(--max); margin:auto}
+    .title{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:22px}
+    h2{font-size:clamp(26px,3.6vw,38px); margin:0}
+    .lead{color:var(--muted); max-width:900px}
+    .cards{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .card{grid-column:span 4; background:linear-gradient(180deg,var(--card),#16171c); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+    .card .img{aspect-ratio:16/10; background:linear-gradient(135deg,#23252d,#161820); border-bottom:1px solid rgba(255,255,255,.06)}
+    .card .body{padding:16px}
+    .card h3{margin:0 0 6px; font-size:1.15rem}
+    .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+    .img{border-radius:14px}
+    /* CONTACTO */
+    .contacto{
+      background:radial-gradient(800px 400px at 20% 0%, rgba(213,177,106,.12), transparent 60%), var(--bg-soft);
+      border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+    .card-lite{background:linear-gradient(180deg,#14151a,#0f1014); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px}
+    .list{display:grid; gap:10px; color:var(--acc)}
+    .list a{display:inline-block; padding:6px 10px; border-radius:10px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06)}
+    /* FOOTER */
+    footer{padding:28px 20px; color:var(--muted); display:flex; justify-content:center}
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero__wrap{grid-template-columns:1fr; padding-top:66px}
+      .cards .card{grid-column:span 6}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .cards .card{grid-column:span 12}
+      .grid-4{grid-template-columns:1fr}
+    }
+
+     /* ESTILOS AÑADIDOS PARA EL EFECTO FADE-IN */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+    <nav class="nav">
+    <div class="nav__inner">
+    <a href="index.html" class="brand">
+      <img src="Imágenes/LogoSample_ByTailorBrands.jpg" alt="Iconic Ambientaciones" class="logo-img" style="width:44px; height:44px; border-radius:50%;">
+      <span>Iconic Ambientaciones</span>
+    </a>
+     </a>
+      <div class="menu">
+        <a href="MPrincipal.html">Mesa principal</a>
+        <a href="SetFotografico.html">Set fotográfico</a>
+        <a href="Livings.html">Livings</a>
+        <a href="Mobiliario.html">Mobiliario</a>
+        <a href="SonidoIluminacion.html">Sonido e iluminación</a>
+        <a href="#contacto" class="cta-nav">Contactar</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="hero">
+    <div class="hero__wrap">
+      <div>
+        <h1 style="font-size: 40px; font-style: italic;">Mesas principales antiguas de lujo para eventos</h1>
+        <p>Piezas exclusivas que fusionan la majestuosidad de lo antiguo con el refinamiento actual. Cada mesa ha sido cuidadosamente restaurada para preservar su esencia histórica, realzando vetas únicas y delicadas tallas artesanales. Su diseño atemporal, 
+        combinado con una ambientación de alto nivel —flores, cristalería fina y iluminación estratégica— crea un escenario imponente y sofisticado. Perfectas para bodas, galas y celebraciones premium, son el centro de atención que convierte cualquier
+         evento en una experiencia elegante e inolvidable.</p>
+        <div class="badges">
+          <span class="badge">Lujo</span>
+          <span class="badge">Prestigio</span>
+          <span class="badge">Protagonismo</span>
+        </div>
+        <div class="cta">
+          <a class="btn btn--fill" href="#contacto">Pedir cotización</a>
+          <a class="btn" href="https://www.instagram.com/iconic_ambientacion/" target="_blank" rel="noopener">Ver Instagram</a>
+        </div>
+      </div>
+        <div class="img" style="width:100%; max-width:1000px; aspect-ratio:3/3; margin:0; background-image:url('Imágenes/MesaPrincipal/96cdc380-52b0-45a9-afdb-667637137c2c.jpg'); background-size:contain; background-repeat:no-repeat; background-position:center;"></div>
+    </div>
+  </header>
+<Section>
+  <div class="grid-4">
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/1c3c03c4-0f5a-41c2-98b5-3df432554b29.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/1d678842-f7e5-4f7f-86bb-8a39d60b995e.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/1de4001c-8070-4bc2-b269-9af0063dde55.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/2dbac272-d883-4a02-ba98-f0dbb2e59176.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/4a0ef4d3-13a4-4cab-ac26-757d240e53e8.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/4a77e63c-7eac-4d9b-8e30-d1411f82e96a.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/IMG_1775.JPG'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/6e09278b-4dbb-41c8-9aba-139b7bee1f0e.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/7c52fdea-b406-4d06-a928-93b8aa8ec23a.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/7df8b8ec-7925-4bee-be98-a2ccf859e789.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/IMG_2906.JPG'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/9ef77e09-fb22-43fe-bd5e-2c1a01021107.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/22d190a3-de55-4b45-815f-d3a8e867057e.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/89e7fc25-70e6-4a74-aad3-56888e03e263.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/93d96549-a881-463a-98fc-97d96f08e26b.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/96c47199-83df-4821-a01c-1d4c9c87ae36.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/93e00ae0-a878-4cb2-85d0-b2ded834dcca.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/381d011f-a252-4f07-9e96-10acf7a67f52.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/595d2f54-b1be-4d32-b0e4-69f5d0820af2.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/20181020_210312.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/f5680243-4d70-4821-8aff-c09a22960211.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/113777f5-810f-47e4-b7d9-8988a25c79af.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/11400232-6aa3-405b-bc44-66b36ca8b689.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/9970764c-6438-4e84-8cd4-a5c4655bb09a.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/20181012_103339.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/a63e36f4-b475-402c-8b5e-3010a3a29200.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/a539a96b-82a3-49d6-943b-c97c0e7a35c7.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/aabc5324-6a2e-44ab-accb-e3114d32a81d.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/b7f02dd1-37b8-46c0-a447-f7bfbf74832f.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/b0ad0f62-8839-4843-9bf0-a5eab969e1b2.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/IMG_0360.JPG'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/IMG_0938.JPG'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/IMG_0966.JPG'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/IMG_1371.JPG'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/IMG_6767.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/MesaPrincipal/c56333bc-aad0-4bcc-9565-b801fd820486.jpg'); background-size:cover; background-position:center;"></div>
+      </div>
+    </Section>
+
+</head>
+  <section id="contacto" class="contacto">
+    <div class="wrap">
+      <div class="title">
+        <h2>Contacto</h2>
+        <p class="lead">Escribinos y te respondemos a la brevedad.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="card-lite">
+          <h3>Redes & mensajería</h3>
+          <div class="list">
+            <a href="https://www.instagram.com/iconic_ambientacion/" target="_blank" rel="noopener">Instagram: @iconic_ambientacion</a>
+            <a href="https://wa.me/5491130890681" target="_blank" rel="noopener">WhatsApp: +54 9 11 3089 0681</a>
+            <a href="https://wa.me/5491145307306" target="_blank" rel="noopener">WhatsApp: +54 9 11 4530 7306</a>
+          </div>
+        </div>
+        <div class="card-lite">
+          <h3>Email</h3>
+          <div class="list">
+            <a href="mailto:iconicambientaciones@gmail.com">iconicambientaciones@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <small>© <span id="year"></span> Iconic Ambientaciones — Buenos Aires, Argentina</small>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // SCRIPT AÑADIDO PARA EL EFECTO FADE-IN
+    const fadeIns = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px',
+      threshold: 0.1
+    });
+
+    fadeIns.forEach(element => {
+      observer.observe(element);
+    });
+
+    // Script para ocultar/mostrar el nav al hacer scroll
+    let lastScrollTop = 0; // Variable para almacenar la última posición del scroll
+    const navbar = document.querySelector('.nav'); // Selecciona tu barra de navegación
+    window.addEventListener('scroll', function() {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop; // Posición actual del scroll
+      if (currentScroll > lastScrollTop) {
+        // Scroll hacia abajo
+        navbar.classList.add('hide');
+      } else {
+        // Scroll hacia arriba
+        navbar.classList.remove('hide');
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Actualiza la última posición del scroll, evita valores negativos
+    });
+  </script>
+</body>
+</html>

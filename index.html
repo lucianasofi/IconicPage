@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iconic Ambientaciones</title>
+  <meta name="description" content="Decoración, mobiliario, sonido e iluminación para eventos. Zona Sur, Buenos Aires." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="Imágenes/LogoSample_ByTailorBrands.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#791b69;
+      --bg-soft:#7e358d;
+      --card:#9d248fc9;
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --brand:#ab7b7b;      
+      --brand-2:#7338a3;      
+      --acc:#efefef; 
+      --shadow: 0 10px 30px rgba(70, 71, 29, 0.84);
+      --radius: 18px;
+      --radius-lg: 30px;
+      --max: 1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:linear-gradient(180deg,var(--bg),#0c0c0f 40%, #0b0b0d 100%);
+      color:var(--text); font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+      line-height:1.6; letter-spacing:.2px;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{color:#f2d892}
+    img, .img {
+      /* Las siguientes propiedades pueden causar que las imágenes se vean pixeladas o borrosas en pantallas de alta densidad */
+      /* image-rendering: -webkit-optimize-contrast; */
+      /* image-rendering: crisp-edges; */
+      /* -ms-interpolation-mode: nearest-neighbor; */
+      image-rendering: auto; /* Permite al navegador decidir el mejor algoritmo de escalado para una mejor calidad visual */
+    }
+    /* NAV */
+    .nav {
+      position: fixed; /* Cambiado a fixed para el efecto de ocultar/mostrar */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      backdrop-filter: saturate(140%) blur(10px);
+      background: rgba(10, 10, 12, .6);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      transition: transform 0.3s ease-out; /* Transición para el efecto de deslizamiento */
+    }
+    .nav.hide {
+      transform: translateY(-100%); /* Oculta el nav moviéndolo hacia arriba */
+    }
+    /* Ajuste para el contenido debajo del nav fijo */
+    body {
+      padding-top: 70px; /* Ajusta este valor según la altura real de tu nav */
+    }
+    .nav__inner{max-width:var(--max); margin:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.6px}
+    .brand .logo{width:36px; height:36px; border-radius:50%; background:radial-gradient(circle at 30% 30%, #f6e3a1, #b7892a); box-shadow:0 0 0 3px rgba(255,255,255,.06)}
+    .brand span{font-size:1.05rem}
+    .menu{display:flex; flex-wrap:wrap; gap:14px}
+    .menu a{font-weight:500; color:var(--acc); opacity:.92; padding:8px 12px; border-radius:12px}
+    .menu a:hover{background:rgba(255,255,255,.06)}
+    .cta-nav{padding:8px 14px; border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#121214; font-weight:700}
+    /* HERO */
+    .hero{position:relative; isolation:isolate;}
+    .hero__wrap{max-width:var(--max); margin:auto; display:grid; grid-template-columns:1.2fr .8fr; gap:36px; padding:84px 20px}
+    .hero h1{font-size:clamp(36px,5vw,58px); line-height:1.1; margin:0 0 10px; letter-spacing:.4px}
+    .hero p{color:var(--muted); font-size:clamp(16px,2.2vw,18px)}
+    .badges{display:flex; gap:14px; margin:24px 0 30px; flex-wrap:wrap}
+    .badge{border:1px solid rgba(255,255,255,.12); color:var(--acc); padding:8px 12px; border-radius:999px; font-size:.9rem; background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{padding:14px 18px; border-radius:14px; font-weight:700; border:1px solid rgba(255,255,255,.12); color:var(--acc)}
+    .btn--fill{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#121214; border:0}
+    .mock{
+      min-height:320px; border-radius:var(--radius-lg); background:radial-gradient(1200px 600px at 20% 20%, rgba(213,177,106,.2), transparent 60%), linear-gradient(180deg,#17181d,#101015); border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow);
+      display:grid; place-items:center; overflow:hidden
+    }
+    .mock .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; padding:12px}
+    .ph{aspect-ratio:4/3; border-radius:12px; background:linear-gradient(135deg,#20222a,#15161b); border:1px solid rgba(255,255,255,.08)}
+    /* SECTIONS */
+    section{padding:72px 20px}
+    .wrap{max-width:var(--max); margin:auto}
+    .title{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:22px}
+    h2{font-size:clamp(26px,3.6vw,38px); margin:0}
+    .lead{color:var(--muted); max-width:900px}
+    .cards{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .card{grid-column:span 4; background:linear-gradient(180deg,var(--card),#16171c); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+    .card .img{aspect-ratio:16/10; background:linear-gradient(135deg,#23252d,#161820); border-bottom:1px solid rgba(255,255,255,.06)}
+    .card .body{padding:16px}
+    .card h3{margin:0 0 6px; font-size:1.15rem}
+    .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+    .img{border-radius:14px}
+    /* CONTACTO */
+    .contacto{
+      background:radial-gradient(800px 400px at 20% 0%, rgba(213,177,106,.12), transparent 60%), var(--bg-soft);
+      border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+    .card-lite{background:linear-gradient(180deg,#14151a,#0f1014); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px}
+    .list{display:grid; gap:10px; color:var(--acc)}
+    .list a{display:inline-block; padding:6px 10px; border-radius:10px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06)}
+    /* FOOTER */
+    footer{padding:28px 20px; color:var(--muted); display:flex; justify-content:center}
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero__wrap{grid-template-columns:1fr; padding-top:66px}
+      .cards .card{grid-column:span 6}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .cards .card{grid-column:span 12}
+      .grid-3{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+ 
+  <!-- NAV -->  
+  <nav class="nav">
+    <div class="nav__inner">
+    <a href="#inicio" class="brand">
+      <img src="Imágenes/LogoSample_ByTailorBrands.jpg" 
+           srcset="Imágenes/LogoSample_ByTailorBrands.jpg 1x, Imágenes/LogoSample_ByTailorBrands.jpg 2x"
+           alt="Iconic Ambientaciones" class="logo-img" style="width:44px; height:44px; border-radius:50%;">
+      <span>Iconic Ambientaciones</span>
+    </a>
+      <div class="menu">
+        <a href="#mesa">Mesa principal</a>
+        <a href="#set">Set fotográfico</a>
+        <a href="#livings">Livings</a>
+        <a href="#mobiliario">Mobiliario</a>
+        <a href="#sonido">Sonido e iluminación</a>
+        <a href="#contacto" class="cta-nav">Contactar</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="hero__wrap">
+      <div>
+        <h1 style="font-size: 40px; font-style: italic;">Ambientaciones para eventos inolvidables</h1>
+        <p>Con más de 20 años de experiencia, somos especialistas en decorar bodas, 15, 18 y celebraciones privadas, elevando cada
+          detalle a un nivel de distinción incomparable. Nuestro mobiliario antiguo de categoría, los exclusivos centros de mesa en 
+          cristal italiano y la iluminación y sonido profesional se combinan para crear ambientes sofisticados, únicos y llenos de estilo. 
+          Desde la planificación hasta la ejecución, cuidamos cada elemento para que tu evento sea memorable, con la calidad y el refinamiento que mereces. 
+          Servicio premium en la Zona Sur de Buenos Aires. Contamos con oficina en la misma Zona.</p>
+        <div class="badges">
+          <span class="badge">+20 años de experiencia</span>
+          <span class="badge">Mobiliario premium</span>
+          <span class="badge">Servicio integral</span>
+        </div>
+        <div class="cta">
+          <a class="btn btn--fill" href="#contacto">Pedir cotización</a>
+          <a class="btn" href="https://www.instagram.com/iconic_ambientacion/" target="_blank" rel="noopener">Ver Instagram</a>
+        </div>
+      </div>
+        <div class="img" style="width:100%; max-width:1000px; aspect-ratio:3/3; margin:0; background-image:url('Imágenes/Mobiliario/9b1d81e6-f369-4729-9a33-f205f4cad2d2.jpg'); background-size:contain; background-repeat:no-repeat; background-position:center;"></div>
+    </div>
+  </header>
+
+<!-- MESA PRINCIPAL -->
+<section id="mesa">
+    <div class="wrap">
+        <div class="title fade-in">
+            <h2>
+            <a href="MPrincipal.html" target="_blank" rel="noopener" style="display:inline-block; color:inherit; text-decoration:none; cursor:pointer; box-shadow:0 20px 30px rgba(131, 194, 59, 0.411), 0 1.5px 4px rgba(216, 45, 185, 0.397); border-radius:10px; padding:4px 16px; background:rgba(211, 19, 99, 0.384); transition:box-shadow 0.2s; vertical-align:middle; text-align:center;">
+                    Mesa principal
+            </a>
+            </h2>
+            <p class="lead">Curamos el protagonismo de tu mesa principal con estilos que reflejan tus preferencias y el tono de tu celebración.</p>
+        </div>
+        <div class="grid-3">
+            <div class="img fade-in" style="aspect-ratio:4/3; background-image:url('Imágenes/MesaPrincipal/015a2a82-7f11-4da1-94e1-a61584b09dd5.jpg'); background-size:cover; background-position:center;"></div>
+            <div class="img fade-in" style="aspect-ratio:4/3; background-image:url('Imágenes/MesaPrincipal/01fe59ae-6cc1-4428-98dc-f9e74c66a857.jpg'); background-size:cover; background-position:center;"></div>
+            <div class="img fade-in" style="aspect-ratio:4/3; background-image:url('Imágenes/MesaPrincipal/030dd10a-55e6-4957-9378-cf4e3517e8e3.jpg'); background-size:cover; background-position:center;"></div>
+        </div>
+    </div>
+</section>
+<script>
+    // Fade-in on scroll, reversible
+    function revealOnScroll() {
+        const reveals = document.querySelectorAll('.fade-in');
+        for (const el of reveals) {
+            const windowHeight = window.innerHeight;
+            const elementTop = el.getBoundingClientRect().top;
+            const elementBottom = el.getBoundingClientRect().bottom;
+            const elementVisible = 80;
+            if (elementTop < windowHeight - elementVisible && elementBottom > elementVisible) {
+                el.classList.add('active');
+            } else {
+                el.classList.remove('active');
+            }
+        }
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+</script>
+<style>
+    .fade-in {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        filter: blur(6px) drop-shadow(0 8px 32px rgba(123, 51, 146, 0.18));
+        transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1), filter 0.7s;
+        will-change: opacity, transform, filter;
+    }
+    .fade-in.active {
+        opacity: 1;
+        transform: none;
+        filter: drop-shadow(0 8px 32px rgba(123, 51, 146, 0.18));
+    }
+    .grid-3 .fade-in {
+        transition-delay: 0s;
+    }
+    .grid-3 .fade-in:nth-child(1) { transition-delay: 0.1s; }
+    .grid-3 .fade-in:nth-child(2) { transition-delay: 0.25s; }
+    .grid-3 .fade-in:nth-child(3) { transition-delay: 0.4s; }
+</style>
+
+<!-- SET FOTOGRÁFICO -->
+<section id="set">
+    <div class="wrap">
+        <div class="title fade-in">
+            <h2>
+                <a href="SetFotografico.html" target="_blank" rel="noopener" style="display:inline-block; color:inherit; text-decoration:none; cursor:pointer; box-shadow:0 20px 30px rgba(131, 194, 59, 0.411), 0 1.5px 4px rgba(216, 45, 185, 0.397); border-radius:10px; padding:4px 16px; background:rgba(211, 19, 99, 0.384); transition:box-shadow 0.2s; vertical-align:middle; text-align:center;">
+                    Set fotográfico
+                </a>
+            </h2>
+            <p class="lead">Un espacio elegante para retratar tus momentos con familiares y amigos, integrado a la ambientación general.</p>
+        </div>
+        <div class="grid-4">
+            <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/SetFoto/15a1640d-b7fd-4ba2-8c1a-ae4c0f2229b4.jpg'); background-size:cover; background-position:center;"></div>
+            <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/SetFoto/c3250a74-7b2b-448f-9597-c43e70758789.jpg'); background-size:cover; background-position:center;"></div>
+            <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/SetFoto/IMG_0970.JPG'); background-size:cover; background-position:center;"></div>
+            <div class="img fade-in" style="aspect-ratio:1; background-image:url('Imágenes/SetFoto/4a59c3b8-1a33-4be2-81b7-347c0cb7f8da.jpg'); background-size:cover; background-position:center;"></div>
+        </div>
+    </div>
+</section>
+<style>
+    .grid-4 .fade-in {
+        transition-delay: 0s;
+    }
+    .grid-4 .fade-in:nth-child(1) { transition-delay: 0.1s; }
+    .grid-4 .fade-in:nth-child(2) { transition-delay: 0.22s; }
+    .grid-4 .fade-in:nth-child(3) { transition-delay: 0.34s; }
+    .grid-4 .fade-in:nth-child(4) { transition-delay: 0.46s; }
+</style>
+
+<!-- LIVINGS -->
+<section id="livings">
+    <div class="wrap">
+        <div class="title fade-in"></div>
+            <h2>
+                <a href="Livings.html" target="_blank" rel="noopener" style="display:inline-block; color:inherit; text-decoration:none; cursor:pointer; box-shadow:0 20px 30px rgba(131, 194, 59, 0.411), 0 1.5px 4px rgba(216, 45, 185, 0.397); border-radius:10px; padding:4px 16px; background:rgba(211, 19, 99, 0.384); transition:box-shadow 0.2s; vertical-align:middle; text-align:center;">
+                    Livings
+                </a>
+            </h2>
+            <p class="lead">Zonas de relax para compartir tragos y charlas durante la recepción y el resto del evento.</p>
+        </div>
+        <div class="grid-3">
+            <div class="img fade-in" style="aspect-ratio:4/3; background-image:url('Imágenes/Living/2dd492f9-a1a2-4080-86b0-91312c218e35.jpg'); background-size:cover; background-position:center;"></div>
+            <div class="img fade-in" style="aspect-ratio:4/3; background-image:url('Imágenes/Living/IMG_0804.JPG'); background-size:cover; background-position:center;"></div>
+            <div class="img fade-in" style="aspect-ratio:4/3; background-image:url('Imágenes/Living/IMG_1648.JPG'); background-size:cover; background-position:center;"></div> 
+            
+        </div>
+    </div>
+</section>
+<style>
+    .grid-3#livings .fade-in {
+        transition-delay: 0s;
+    }
+    #livings .grid-3 .fade-in:nth-child(1) { transition-delay: 0.1s; }
+    #livings .grid-3 .fade-in:nth-child(2) { transition-delay: 0.25s; }
+    #livings .grid-3 .fade-in:nth-child(3) { transition-delay: 0.4s; }
+</style>
+
+<!-- MOBILIARIO DE CATEGORÍA -->
+<section id="mobiliario">
+    <div class="wrap">
+        <div class="title fade-in">
+            <h2>
+                <a href="Mobiliario.html" target="_blank" rel="noopener" style="display:inline-block; color:inherit; text-decoration:none; cursor:pointer; box-shadow:0 20px 30px rgba(131, 194, 59, 0.411), 0 1.5px 4px rgba(216, 45, 185, 0.397); border-radius:10px; padding:4px 16px; background:rgba(211, 19, 99, 0.384); transition:box-shadow 0.2s; vertical-align:middle; text-align:center;">
+                    Mobiliario de categoría
+                </a>
+            </h2>
+            <p class="lead">Piezas cuidadas y versátiles para lograr un servicio de alto nivel en cada montaje.</p>
+        </div>
+        <div class="cards">
+            <article class="card fade-in">
+                <div class="img" style="aspect-ratio:16/10; background-image:url('Imágenes/Mobiliario/53affa09-30c2-45e6-859b-b96823cd194e.jpg'); background-size:cover; background-position:center;"></div>
+                <div class="body">
+                    <h3>Mesas & sillas</h3>
+                    <p class="lead">Combinaciones que equilibran comodidad y estética.</p>
+                </div>
+            </article>
+            <article class="card fade-in">
+                <div class="img" style="aspect-ratio:16/10; background-image:url('Imágenes/Mobiliario/IMG_0332.JPG'); background-size:cover; background-position:center;"></div>
+                <div class="body">
+                    <h3>Barras & livings</h3>
+                    <p class="lead">Espacios sociales con identidad.</p>
+                </div>
+            </article>
+            <article class="card fade-in">
+                <div class="img" style="aspect-ratio:16/10; background-image:url('Imágenes/Mobiliario/8b43cca7-0a8f-4f45-bf27-b7909e662f34.jpg'); background-size:cover; background-position:center;""></div>
+                <div class="body">
+                    <h3>Backs & deco</h3>
+                    <p class="lead">Detalles que transforman el ambiente.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+<style>
+    #mobiliario .cards .fade-in {
+        transition-delay: 0s;
+    }
+    #mobiliario .cards .fade-in:nth-child(1) { transition-delay: 0.1s; }
+    #mobiliario .cards .fade-in:nth-child(2) { transition-delay: 0.25s; }
+    #mobiliario .cards .fade-in:nth-child(3) { transition-delay: 0.4s; }
+</style>
+
+<!-- SONIDO E ILUMINACIÓN -->
+<section id="sonido">
+    <div class="wrap">
+        <div class="title fade-in">
+            <h2>
+                <a href="SonidoIluminacion.html" target="_blank" rel="noopener" style="display:inline-block; color:inherit; text-decoration:none; cursor:pointer; box-shadow:0 20px 30px rgba(131, 194, 59, 0.411), 0 1.5px 4px rgba(216, 45, 185, 0.397); border-radius:10px; padding:4px 16px; background:rgba(211, 19, 99, 0.384); transition:box-shadow 0.2s; vertical-align:middle; text-align:center;">
+                    Sonido e iluminación
+                </a>
+            </h2>
+            <p class="lead">Sistema a cargo de especialistas con larga trayectoria para que la fiesta no pare.</p>
+        </div>
+        <div class="grid-3">
+            <div class="img fade-in" style="aspect-ratio:16/10; background-image:url('Imágenes/SonIlu/DNKU0276.JPG'); background-size:cover; background-position:center;"></div>
+            <div class="img fade-in" style="aspect-ratio:16/10; background-image:url('Imágenes/SonIlu/62a7a579-fb44-469c-a35e-d319305acaeb.jpg'); background-size:cover; background-position:center;"></div>
+            <div class="img fade-in" style="aspect-ratio:16/10; background-image:url('Imágenes/SonIlu/IMG_7342.JPG'); background-size:cover; background-position:center;"></div>
+        </div>
+    </div>
+</section>
+<style>
+    #sonido .grid-3 .fade-in {
+        transition-delay: 0s;
+    }
+    #sonido .grid-3 .fade-in:nth-child(1) { transition-delay: 0.1s; }
+    #sonido .grid-3 .fade-in:nth-child(2) { transition-delay: 0.25s; }
+    #sonido .grid-3 .fade-in:nth-child(3) { transition-delay: 0.4s; }
+</style>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contacto">
+    <div class="wrap">
+      <div class="title">
+        <h2>Contacto</h2>
+        <p class="lead">Escribinos y te respondemos a la brevedad.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="card-lite">
+          <h3>Redes & mensajería</h3>
+          <div class="list">
+            <a href="https://www.instagram.com/iconic_ambientacion/" target="_blank" rel="noopener">Instagram: @iconic_ambientacion</a>
+            <a href="https://wa.me/5491130890681" target="_blank" rel="noopener">WhatsApp: +54 9 11 3089 0681</a>
+            <a href="https://wa.me/5491145307306" target="_blank" rel="noopener">WhatsApp: +54 9 11 4530 7306</a>
+          </div>
+        </div>
+        <div class="card-lite">
+          <h3>Email</h3>
+          <div class="list">
+            <a href="mailto:iconicambientaciones@gmail.com">iconicambientaciones@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <small>© <span id="year"></span> Iconic Ambientaciones — Buenos Aires, Argentina</small>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Script para ocultar/mostrar el nav al hacer scroll
+    let lastScrollTop = 0; // Variable para almacenar la última posición del scroll
+    const navbar = document.querySelector('.nav'); // Selecciona tu barra de navegación
+    window.addEventListener('scroll', function() {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop; // Posición actual del scroll
+      if (currentScroll > lastScrollTop) {
+        // Scroll hacia abajo
+        navbar.classList.add('hide');
+      } else {
+        // Scroll hacia arriba
+        navbar.classList.remove('hide');
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Actualiza la última posición del scroll, evita valores negativos
+    });
+  </script>
+</body>
+</html>
