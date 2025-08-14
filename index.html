@@ -34,11 +34,11 @@
     a{color:var(--brand); text-decoration:none}
     a:hover{color:#f2d892}
     img, .img {
-      /* Las siguientes propiedades pueden causar que las imágenes se vean pixeladas o borrosas en pantallas de alta densidad */
-      /* image-rendering: -webkit-optimize-contrast; */
-      /* image-rendering: crisp-edges; */
-      /* -ms-interpolation-mode: nearest-neighbor; */
-      image-rendering: auto; /* Permite al navegador decidir el mejor algoritmo de escalado para una mejor calidad visual */
+      image-rendering: -webkit-optimize-contrast; /* Para navegadores WebKit */
+      image-rendering: crisp-edges; /* Para otros navegadores */
+      image-rendering: -webkit-optimize-contrast; 
+      image-rendering: crisp-edges;
+      ms-interpolation-mode: nearest-neighbor; 
     }
     /* NAV */
     .nav {
